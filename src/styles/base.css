@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo",
+    "Noto Sans KR", sans-serif;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--canvas);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+button:not(:disabled):active,
+a:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--action-blue);
+  outline-offset: 3px;
+}
+
+summary:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--action-blue);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.placeholder-screen {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: max(28px, env(safe-area-inset-top)) 16px var(--spacing-6);
+}
+
+.placeholder-screen > p {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.placeholder-screen h1 {
+  margin-top: 4px;
+  font-size: 28px;
+}
+
+.placeholder-screen > div {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--canvas);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.placeholder-screen > div button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  border-radius: 12px;
+  background: var(--action-blue);
+  color: var(--surface-base);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.workspace-error,
+.workspace-loading {
+  position: fixed;
+  z-index: 20;
+  top: max(8px, env(safe-area-inset-top));
+  left: 50%;
+  width: min(calc(100% - 32px), 428px);
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-danger);
+  color: var(--destructive-red);
+  font-size: 12px;
+  font-weight: 800;
+  transform: translateX(-50%);
+}
+
+.workspace-loading {
+  background: var(--action-blue-soft);
+  color: var(--action-blue);
+}
+
+.app-legal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  max-width: 720px;
+  margin: 32px auto 16px;
+  padding: 12px 16px 0;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.app-legal-footer a {
+  color: inherit;
+  text-underline-offset: 3px;
+}

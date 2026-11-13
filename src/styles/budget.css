@@ -1,0 +1,219 @@
+.budget-screen {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: max(20px, env(safe-area-inset-top)) 16px var(--spacing-6);
+  background: var(--surface-base);
+}
+
+.budget-screen main {
+  display: grid;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.budget-summary,
+.budget-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--surface-elevated);
+}
+
+.budget-summary > span,
+.budget-card > p {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.budget-summary h2 {
+  margin-top: 7px;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.budget-summary h2.is-over {
+  color: var(--destructive-red);
+}
+
+.budget-summary > p {
+  margin-top: 4px;
+  color: var(--action-blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.budget-summary dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.budget-summary dl div {
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--surface-base);
+}
+
+.budget-summary dt {
+  color: var(--text-tertiary);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.budget-summary dd {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.budget-card h2 {
+  font-size: 18px;
+}
+
+.budget-card form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.budget-card label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.budget-card input,
+.budget-card select {
+  width: 100%;
+  min-height: 46px;
+  padding: 9px 11px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 11px;
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.budget-card form > button {
+  min-height: 48px;
+  border-radius: 12px;
+  background: var(--action-blue);
+  color: var(--surface-base);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.budget-card [role="alert"] {
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: var(--surface-danger);
+  color: var(--destructive-red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.expense-quick-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.expense-quick-amounts button {
+  min-height: 44px;
+  border-radius: 10px;
+  background: var(--action-blue-soft);
+  color: var(--action-blue);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.budget-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.budget-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.planned-cost > p,
+.expense-history > p {
+  margin-top: 7px;
+}
+
+.planned-cost ul,
+.expense-history ul {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planned-cost li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 12px;
+}
+
+.planned-cost small {
+  color: var(--text-tertiary);
+}
+
+.expense-history li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.expense-history li div > strong,
+.expense-history li div > span {
+  display: block;
+}
+
+.expense-history li div > span {
+  margin-top: 3px;
+  color: var(--text-tertiary);
+  font-size: 11px;
+}
+
+.expense-history li button {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--destructive-red);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.expense-delete-confirm {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  color: var(--destructive-red);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+@media (max-width: 359px) {
+  .budget-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

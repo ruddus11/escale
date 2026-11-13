@@ -1,0 +1,56 @@
+# F03 일정 추가 -> 수정 -> 다른 날짜 이동 -> 삭제.
+# 개발 예시 여행 "오사카 먹방 여행"(11/12-11/15)이 여행 목록에 보이는 상태에서 시작한다.
+appId: com.travelpouch.notebook
+---
+- tapOn: '오사카 먹방 여행.*'
+- tapOn: '시간표'
+- tapOn: '2일째 11월 13일.*'
+- tapOn: '일정 추가'
+- tapOn:
+    below: '제목'
+    index: 0
+- inputText: 'QA F03 add'
+- tapOn: 'HH:MM'
+- inputText: '15:30'
+- hideKeyboard
+- tapOn: '1시간'
+- runFlow: _dismiss-logbox.yaml
+- scrollUntilVisible:
+    element: '여행에 저장'
+- tapOn: '여행에 저장'
+# 저장하면 방금 만든 일정의 상세로 간다.
+- assertVisible: 'PLAN · 11월 13일 금요일 · 15:30'
+- assertVisible: 'QA F03 add'
+- takeScreenshot: f03-added
+- tapOn: '내용 수정'
+- tapOn: 'QA F03 add'
+- eraseText: 20
+- inputText: 'QA F03 moved'
+- hideKeyboard
+- tapOn: '2026-11-13'
+- tapOn: '14'
+- tapOn: '날짜 선택 완료'
+- assertVisible: '2026-11-14'
+- runFlow: _dismiss-logbox.yaml
+- scrollUntilVisible:
+    element: '여행에 저장'
+- tapOn: '여행에 저장'
+- assertVisible: 'PLAN · 11월 14일 토요일 · 15:30'
+- assertVisible: 'QA F03 moved'
+- tapOn: '돌아가기'
+# 원래 날짜에는 없고 옮긴 날짜에만 있어야 한다.
+- tapOn: '2일째 11월 13일.*'
+- assertNotVisible: '.*QA F03.*'
+- tapOn: '3일째 11월 14일.*'
+- assertVisible: '.*QA F03 moved.*'
+- takeScreenshot: f03-moved
+- tapOn: '15:30, QA F03 moved.*'
+- tapOn: '지우기'
+# iOS 26 경고창 버튼은 Maestro 텍스트 탭이 닿지 않아 "지우기" 버튼 위치를 누른다.
+- assertVisible: '이 페이지를 지울까요\?'
+- tapOn:
+    point: '68%,56%'
+- assertVisible: '일정 추가'
+- assertNotVisible: '.*QA F03 moved.*'
+- takeScreenshot: f03-deleted
+- tapOn: '여행 목록으로'

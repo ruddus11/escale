@@ -1,0 +1,189 @@
+#root {
+  height: 100dvh;
+}
+
+[data-astryx-theme="margin"] {
+  height: 100%;
+  /* 표지 색은 사용자가 고른 수첩의 색이라 브랜드 흑백 팔레트의 예외로 둔다. */
+  --cover-cobalt: #345cf0;
+}
+
+/* 수첩 머리글: 제목·메뉴·위쪽 탭. 아래 두 줄 괘선은 인쇄된 수첩 머리처럼 보이게 한다. */
+.app-frame__header {
+  padding-top: env(safe-area-inset-top);
+  background: var(--color-background-body);
+}
+
+.notebook-header {
+  padding: var(--spacing-2) var(--spacing-4) 0 var(--spacing-6);
+}
+
+.notebook-header__title {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.notebook-tabs {
+  border-bottom: 3px double color-mix(in srgb, var(--color-text-primary) 55%, transparent);
+}
+
+.notebook-tabs .astryx-tab[data-selected] {
+  color: var(--color-text-accent);
+}
+
+/* 제목은 수첩 인쇄체처럼 명조 계열. 본문·금액은 기본 글꼴을 그대로 쓴다. */
+.notebook-title {
+  font-family: "Nanum Myeongjo", "AppleMyungjo", "Noto Serif KR", serif;
+}
+
+.notebook-rule {
+  padding-bottom: var(--spacing-2);
+  border-bottom: 3px double color-mix(in srgb, var(--color-text-primary) 55%, transparent);
+}
+
+/*
+ * 종이 결과 제본 그늘. 화면 전체에 겹치되 누르기는 막지 않는다.
+ * 질감 선 굵기(1px 단위)는 토큰이 없는 시각 효과라 숫자로 둔다.
+ */
+.app-frame__paper {
+  background: var(--color-background-body);
+}
+
+.app-frame__paper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background-image:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-text-primary) 22%, transparent), color-mix(in srgb, var(--color-text-primary) 6%, transparent) var(--spacing-3), transparent var(--spacing-8)),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/></svg>");
+}
+
+.plan-switch,
+.plan-back {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-4) 0;
+}
+
+.plan-back {
+  justify-content: flex-start;
+}
+
+.notebook-notice,
+.covers-screen,
+.trip-form-screen,
+.places-screen {
+  margin-inline: auto;
+  padding: var(--spacing-6) var(--spacing-4) var(--spacing-8) var(--spacing-6);
+}
+
+/* 표지: 천 결이 보이는 하드커버와 손글씨 라벨 자리 */
+.covers-screen__shelf {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.covers-screen__item {
+  width: calc(50% - var(--spacing-2));
+}
+
+.notebook-cover {
+  --cover-color: var(--cover-cobalt);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: var(--spacing-4) var(--spacing-3);
+  border: 0;
+  border-radius: var(--spacing-1) var(--spacing-3) var(--spacing-3) var(--spacing-1);
+  color: var(--color-text-primary);
+  text-align: left;
+  cursor: pointer;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, black 24%, transparent), transparent var(--spacing-4)),
+    repeating-linear-gradient(0deg, color-mix(in srgb, white 8%, transparent) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, black 10%, transparent) 0 1px, transparent 1px 3px),
+    var(--cover-color);
+  box-shadow:
+    var(--spacing-1) var(--spacing-1) 0 color-mix(in srgb, var(--color-background-body) 70%, var(--color-text-primary)),
+    0 var(--spacing-4) var(--spacing-6) calc(var(--spacing-3) * -1) color-mix(in srgb, var(--color-text-primary) 60%, transparent);
+}
+
+.notebook-cover[data-cover="ink"] {
+  --cover-color: var(--color-text-primary);
+}
+
+.notebook-cover[data-cover="sky"] {
+  --cover-color: color-mix(in srgb, var(--cover-cobalt) 50%, var(--color-background-body));
+}
+
+.notebook-cover[aria-current="true"] {
+  outline: 3px solid var(--color-accent);
+  outline-offset: var(--spacing-1);
+}
+
+.notebook-cover__label {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--spacing-0-5);
+  background: var(--color-background-body);
+  box-shadow: 0 1px 2px color-mix(in srgb, black 30%, transparent);
+}
+
+.notebook-cover__title {
+  font-family: "Nanum Myeongjo", "AppleMyungjo", "Noto Serif KR", serif;
+  font-size: var(--font-size-lg);
+}
+
+.notebook-cover__status {
+  align-self: flex-start;
+  padding: var(--spacing-0-5) var(--spacing-2);
+  border-radius: var(--spacing-1);
+  background: var(--color-background-body);
+  color: var(--color-text-accent);
+}
+
+.trip-form-screen__form,
+.trip-form-screen__members {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.trip-form-screen__legend {
+  padding: 0;
+  margin-bottom: var(--spacing-2);
+}
+
+.trip-form-screen__form label:has(> select),
+.trip-form-screen__form label:has(> input[list]) {
+  display: grid;
+  gap: var(--spacing-2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trip-form-screen__form select,
+.trip-form-screen__form input[list] {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border-primary, #d6d9df);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.trip-form-screen__issues {
+  margin: 0;
+  padding-left: var(--spacing-5);
+  color: var(--color-text-red);
+}
