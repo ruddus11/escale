@@ -1,0 +1,60 @@
+import type { Entry } from "../entry";
+
+// 앱 틀(알림창·수첩 메뉴·불러오기)과 페이지 상세 문구.
+export const APP_STRINGS = {
+  "common.keep": ["유지", "Keep", "残す"],
+  "common.delete": ["지우기", "Delete", "削除"],
+  "common.edit": ["내용 수정", "Edit", "編集"],
+  "common.tryLater": ["잠시 후 다시 시도해 주세요.", "Please try again in a moment.", "少し待ってからもう一度お試しください。"],
+  // 서버가 429로 유료 검색·AI 호출을 막았을 때. 저장한 수첩은 그대로라는 점을 함께 알린다.
+  "limit.rate": ["요청이 많아요. 잠시 후 다시 시도해 주세요.", "Too many requests. Try again in a moment.", "リクエストが多すぎます。少し待ってからお試しください。"],
+  "limit.daily": ["오늘 이용 한도를 모두 썼어요. 저장한 내용은 그대로 볼 수 있어요.", "You've reached today's limit. Your saved notes are still here.", "本日の利用上限に達しました。保存した内容はそのまま見られます。"],
+  "limit.service": ["지금은 이용이 많아 잠시 쉬고 있어요. 나중에 다시 시도해 주세요.", "This feature is resting due to high demand. Try again later.", "利用が集中しているため一時休止中です。後でお試しください。"],
+
+  "app.discardTitle": ["입력을 닫을까요?", "Discard your changes?", "入力を閉じますか？"],
+  "app.discardBody": ["저장하지 않은 내용은 남지 않아요.", "Anything you haven't saved will be lost.", "保存していない内容は残りません。"],
+  "app.keepEditing": ["계속 입력", "Keep editing", "入力を続ける"],
+  "app.discardCreate": ["새 여행 만들기를 닫을까요?", "Stop making this trip?", "新しい旅行の作成をやめますか？"],
+  "app.saveFailed": ["저장하지 못했어요", "Couldn't save", "保存できませんでした"],
+  "app.saveFailedBody": ["입력 내용은 유지됩니다. 다시 시도해 주세요.", "What you typed is kept. Please try again.", "入力内容はそのままです。もう一度お試しください。"],
+  "app.replaceTitle": ["여행 목록을 바꿀까요?", "Replace your trips?", "旅行を置き換えますか？"],
+  "app.replaceBody": [
+    "{n}권을 가져옵니다. 현재 앱의 모든 여행과 기록이 교체돼요. 먼저 백업을 권장해요.",
+    "This brings in {n} trips and replaces everything in the app. Back up first.",
+    "{n}冊を読み込みます。アプリ内の旅行と記録はすべて置き換わります。先にバックアップしてください。",
+  ],
+  "app.import": ["가져오기", "Import", "読み込む"],
+  "app.importFailed": ["가져오지 못했어요", "Couldn't import", "読み込めませんでした"],
+  "app.checkFile": ["파일을 확인해 주세요.", "Check the file.", "ファイルを確認してください。"],
+  "app.backupFailed": ["백업하지 못했어요", "Couldn't back up", "バックアップできませんでした"],
+  "app.checkSave": ["파일 저장을 확인해 주세요.", "Check where the file was saved.", "ファイルの保存先を確認してください。"],
+  "app.settings": ["여행 설정", "Trip settings", "旅行の設定"],
+  "app.unarchive": ["진행 중 여행으로 옮기기", "Move back to current", "進行中に戻す"],
+  "app.archive": ["다녀온 여행으로 보관", "Archive as a past trip", "旅のあとに移す"],
+  "app.delete": ["삭제", "Delete", "削除"],
+  "app.deleteTitle": ["‘{title}’ 여행을 삭제할까요?", "Delete “{title}”?", "「{title}」を削除しますか？"],
+  "app.deleteBody": [
+    "속지·준비물·스티커와 사진까지 모두 지워지고 되돌릴 수 없어요.",
+    "Its pages, packing list, stickers and photos will all be removed. This can't be undone.",
+    "中のページ・持ち物・ステッカー・写真もすべて削除され、元に戻せません。",
+  ],
+  "app.deleteNotebook": ["이 여행 삭제", "Delete this trip", "この旅行を削除"],
+  "app.loading": ["여행을 꺼내는 중", "Opening your trips", "旅行を開いています"],
+  "app.loadFailed": ["여행을 열지 못했어요", "Couldn't open your trips", "旅行を開けませんでした"],
+  "app.loadFailedBody": ["저장된 원본은 바꾸지 않았어요.", "Your saved data was not changed.", "保存されたデータは変更していません。"],
+  "app.reload": ["다시 불러오기", "Try again", "もう一度読み込む"],
+  "app.restore": ["백업에서 복구", "Restore from a backup", "バックアップから復元"],
+  "app.accountBackup": ["백업과 복구", "Backup and restore", "バックアップと復元"],
+  "app.accountConflict": ["계정 백업 확인 필요", "Check your account backup", "アカウントのバックアップを確認"],
+
+  "page.map": ["지도", "Map", "地図"],
+  "page.noNote": ["메모가 없어요.", "No notes.", "メモはありません。"],
+  "page.done": ["다녀왔어요", "Been there", "行った"],
+  "page.undone": ["완료 표시 취소", "Mark as not done", "完了を取り消す"],
+  "page.deleteTitle": ["이 페이지를 지울까요?", "Delete this page?", "このページを削除しますか？"],
+  "page.deleteBody": ["이 여행에서 삭제됩니다.", "It will be removed from this trip.", "この旅行から削除されます。"],
+
+  "expense.delete": ["이 지출 지우기", "Delete this expense", "この支出を削除"],
+  "expense.deleteTitle": ["지출을 지울까요?", "Delete this expense?", "この支出を削除しますか？"],
+  "expense.deleteBody": ["계산에서도 제외됩니다.", "It will also leave the totals.", "集計からも外れます。"],
+} as const satisfies Record<string, Entry>;

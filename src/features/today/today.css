@@ -1,0 +1,27 @@
+.today-screen {
+  margin-inline: auto;
+  padding: max(var(--spacing-6), env(safe-area-inset-top)) var(--spacing-4)
+    var(--spacing-6);
+}
+
+.trip-date-strip__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trip-date-strip__day {
+  flex: 1;
+  padding-block: var(--spacing-2);
+  border-radius: var(--radius-container);
+}
+
+.trip-date-strip__day[aria-current="date"] {
+  background: var(--color-accent-muted);
+}
+
+.next-move__timetable {
+  padding: var(--spacing-4);
+  border-radius: var(--radius-container);
+  background: var(--color-background-surface);
+}

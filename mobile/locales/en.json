@@ -1,0 +1,5 @@
+{
+  "ios": {
+    "NSCameraUsageDescription": "Use the camera to photograph receipts and record expenses. Photos stay on your device."
+  }
+}

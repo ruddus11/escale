@@ -1,0 +1,7 @@
+node_modules
+.expo/
+dist/
+# expo prebuild가 만드는 네이티브 프로젝트만 뺀다. modules/*/ios 같은 직접 쓴 네이티브 코드는 올린다.
+/ios/
+/android/
+*.tsbuildinfo

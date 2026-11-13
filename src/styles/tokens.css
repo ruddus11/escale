@@ -1,0 +1,33 @@
+:root {
+  --canvas: #f6f3ec;
+  --surface-base: #f6f3ec;
+  --surface-elevated: #f4f4f6;
+  --surface-subtle: #f4f4f6;
+  --surface-danger: #fff0f1;
+  --surface-warning: #fff3e3;
+  --board: #202224;
+  --board-text: #ffffff;
+  --board-muted: #b7b9bd;
+  --board-dot: rgba(255, 255, 255, 0.13);
+  --text-primary: #1c1c1e;
+  --text-secondary: #6e6f74;
+  --text-tertiary: #55565b;
+  --border-subtle: #e5e5e7;
+  --action-blue: #0066cc;
+  --action-blue-soft: #e7f3ff;
+  --success-green: #237c6d;
+  --success-green-soft: #e9f6f2;
+  --warning-orange: #b85200;
+  --destructive-red: #b4233a;
+  --shadow-navigation: 0 -8px 28px rgba(28, 28, 30, 0.06);
+}
+
+/* 예전 화면의 색 변수를 수첩 테마 토큰에 잇는다. 테마 토큰은 테마 감싸개 안에서만 정의되어 여기에 둔다. */
+[data-astryx-theme="margin"] {
+  --canvas: var(--color-background-body);
+  --surface-base: var(--color-background-body);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --action-blue: var(--color-accent);
+  --action-blue-soft: var(--color-accent-muted);
+}

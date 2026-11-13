@@ -1,0 +1,43 @@
+import type { Entry } from "../entry";
+
+// 장소 찾기와 계획 탭 지도 문구.
+export const PLACE_STRINGS = {
+  "browse.quota": ["이번 이용 기간의 검색 횟수를 모두 사용했어요. 담아둔 장소는 계속 볼 수 있어요.", "You've used this period's searches. Your saved places are still available.", "今回の利用期間の検索回数を使い切りました。保存した場所は引き続き見られます。"],
+  "browse.rate": ["잠시 뒤 다시 검색해주세요. 이미 진행 중인 검색이 있을 수 있어요.", "Try again shortly. Another search may still be running.", "少し待ってから再検索してください。別の検索が進行中の可能性があります。"],
+  "browse.paused": ["지금은 장소 검색을 잠시 쉬고 있어요. 직접 적거나 담아둔 장소를 볼 수 있어요.", "Place search is temporarily paused. You can still add places yourself and view saved places.", "場所検索を一時停止しています。手入力や保存した場所の閲覧は引き続き利用できます。"],
+  "browse.remaining": ["남은 검색 {n} / {limit}회", "Searches left: {n} / {limit}", "検索残り {n} / {limit}回"],
+  "browse.admin": ["운영자 · 개인 검색 한도 없음", "Admin · no personal search limit", "管理者 · 個人検索の上限なし"],
+  "browse.destination": ["여행 설정에 여행지를 먼저 적어주세요.", "Add a destination to your trip first.", "先に旅行設定で旅行先を入力してください。"],
+  "map.failed": ["지도에 위치를 표시하지 못했어요.", "Couldn't show these places on the map.", "地図に場所を表示できませんでした。"],
+  "map.failedHint": ["연결이나 주소를 확인한 뒤 다시 시도해 주세요.", "Check your connection or the address, then try again.", "接続や住所を確認してから、もう一度お試しください。"],
+  "map.unavailable": ["이 빌드에서는 지도를 열 수 없어요.", "The map isn't available in this build.", "このビルドでは地図を開けません。"],
+  "map.unavailableHint": ["장소와 일정은 계속 확인할 수 있어요.", "You can still view your places and plans.", "場所と予定は引き続き確認できます。"],
+  "map.partial": ["{n}곳은 위치를 찾지 못했어요.", "Couldn't find {n} of these places.", "{n}か所の位置が見つかりませんでした。"],
+  "map.retry": ["다시 시도", "Try again", "再試行"],
+  "map.loading": ["지도를 준비하는 중…", "Preparing the map…", "地図を準備中…"],
+  "map.signIn": ["로그인하면 지도를 볼 수 있어요.", "Sign in to see this map.", "ログインすると地図を見られます。"],
+  "map.signInHint": [
+    "장소 위치를 찾으려면 로그인이 필요해요. 일정은 그대로 볼 수 있어요.",
+    "Finding places on the map needs an account. Your plans are still here.",
+    "場所の位置を探すにはログインが必要です。予定はそのまま見られます。",
+  ],
+  "map.signInAction": ["로그인", "Sign in", "ログイン"],
+  "browse.failed": ["장소를 불러오지 못했어요. 다시 시도해주세요.", "Couldn't load places. Please try again.", "場所を読み込めませんでした。もう一度お試しください。"],
+  "browse.saveFailed": ["저장하지 못했어요. 다시 담아주세요.", "Couldn't save. Please try again.", "保存できませんでした。もう一度お試しください。"],
+  "place.search": ["장소 찾기", "Find a place", "場所を探す"],
+  "place.searchHint": ["이름이나 주소를 적어 보세요", "Type a name or address", "名前や住所を入力してください"],
+  "place.searching": ["찾는 중…", "Searching…", "検索中…"],
+  "place.none": [
+    "맞는 장소가 없어요. 주소를 직접 적어도 돼요.",
+    "No matching place. You can type the address yourself.",
+    "該当する場所がありません。住所を直接入力しても大丈夫です。",
+  ],
+  "place.picked": ["지도에 표시돼요", "Shown on the map", "地図に表示されます"],
+  "place.clear": ["선택 지우기", "Clear", "選択を解除"],
+  "place.signIn": ["로그인하면 장소를 찾아 넣고 지도로 볼 수 있어요.", "Sign in to search for places and see them on the map.", "ログインすると場所を検索して地図で見られます。"],
+  "place.noServer": ["장소 찾기가 아직 준비되지 않았어요.", "Place search isn't set up yet.", "場所検索はまだ準備できていません。"],
+  "place.slow": ["장소 찾기가 늦어지고 있어요. 잠시 후 다시 해 주세요.", "Place search is slow right now. Try again in a moment.", "場所検索に時間がかかっています。少し待ってからお試しください。"],
+  "place.failed": ["장소를 찾지 못했어요. 주소를 직접 적어도 돼요.", "Couldn't find the place. You can type the address yourself.", "場所が見つかりませんでした。住所を直接入力しても大丈夫です。"],
+  "place.map": ["그날 일정 지도", "Map of the day's plans", "その日の予定の地図"],
+  "place.pin": ["{n}번 {title}", "{n}. {title}", "{n}番 {title}"],
+} as const satisfies Record<string, Entry>;

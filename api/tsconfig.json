@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.node.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.api.tsbuildinfo"
+  },
+  "include": [
+    "./**/*.ts",
+    "../server/**/*.ts",
+    "../src/data/**/*.ts",
+    "../src/domain/**/*.ts"
+  ]
+}

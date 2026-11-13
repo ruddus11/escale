@@ -1,0 +1,192 @@
+/* 공개 문서 화면. 모바일 Margin의 종이 수첩(크림 바탕·먹색 글자·괘선)을 따른다. */
+.legal-site {
+  --legal-paper: #f6f3ec;
+  --legal-ink: #111111;
+  --legal-gray: #5e5e5e;
+  --legal-rule: #ddd6c8;
+  /* 괘선 간격. 본문 줄 높이(16px × 1.75 = 28px)와 맞춘다. */
+  --legal-line: 28px;
+  min-height: 100vh;
+  padding: 24px 20px 48px;
+  background: var(--legal-paper);
+  color: var(--legal-ink);
+  font-size: 16px;
+  line-height: 1.75;
+  /* 긴 이메일·주소가 좁은 화면 밖으로 나가지 않게 한다. */
+  overflow-wrap: anywhere;
+}
+
+.legal-site a {
+  color: var(--legal-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-site a:focus-visible {
+  outline-color: var(--legal-ink);
+}
+
+.legal-site__header,
+.legal-site__pages,
+.legal-site__paper,
+.legal-site__footer {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-site__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.legal-site .legal-site__mark {
+  font-family: "Nanum Myeongjo", "AppleMyungjo", "Noto Serif KR", serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.legal-site__langs,
+.legal-site__pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 14px;
+}
+
+.legal-site__langs a[aria-current],
+.legal-site__pages a[aria-current] {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.legal-site__pages {
+  margin-top: 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--legal-ink);
+  border-bottom: 1px solid var(--legal-ink);
+}
+
+.legal-site__paper {
+  margin-top: 24px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--legal-line) - 1px),
+    var(--legal-rule) calc(var(--legal-line) - 1px),
+    var(--legal-rule) var(--legal-line)
+  );
+}
+
+.legal-site h1 {
+  font-family: "Nanum Myeongjo", "AppleMyungjo", "Noto Serif KR", serif;
+  font-size: 30px;
+  line-height: 1.3;
+  white-space: pre-line;
+}
+
+.legal-site h2 {
+  margin: 32px 0 8px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.legal-site h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.legal-site p,
+.legal-site ul {
+  margin: 8px 0;
+}
+
+.legal-site ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.legal-site__meta,
+.legal-site__fine,
+.legal-site__notice {
+  color: var(--legal-gray);
+  font-size: 14px;
+}
+
+.legal-site__notice {
+  padding: 8px 12px;
+  border: 1px solid var(--legal-ink);
+  background: var(--legal-paper);
+}
+
+.legal-site__lead {
+  margin-top: 12px;
+}
+
+/* 동의서의 중요한 내용은 굵고 20% 크게 보인다(모바일 LegalText와 같은 규칙). */
+.legal-site__strong {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.legal-site table {
+  width: 100%;
+  margin: 12px 0;
+  border-collapse: collapse;
+  background: var(--legal-paper);
+  font-size: 15px;
+}
+
+.legal-site caption {
+  padding-bottom: 4px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.legal-site th,
+.legal-site td {
+  padding: 8px;
+  border-top: 1px solid var(--legal-ink);
+  border-bottom: 1px solid var(--legal-ink);
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-site th {
+  width: 7.5em;
+  font-weight: 700;
+}
+
+.legal-site__box {
+  margin: 12px 0;
+  border: 1px solid var(--legal-ink);
+  background: var(--legal-paper);
+}
+
+.legal-site__box section {
+  padding: 10px 12px;
+}
+
+.legal-site__box section + section {
+  border-top: 1px solid var(--legal-ink);
+}
+
+.legal-site__action a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 16px;
+  background: var(--legal-ink);
+  color: var(--legal-paper);
+  text-decoration: none;
+}
+
+.legal-site__footer {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid var(--legal-ink);
+  color: var(--legal-gray);
+  font-size: 14px;
+}

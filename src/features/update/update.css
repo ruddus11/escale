@@ -1,0 +1,65 @@
+.pwa-update-prompt {
+  position: fixed;
+  z-index: 30;
+  right: 50%;
+  bottom: calc(82px + env(safe-area-inset-bottom));
+  display: flex;
+  width: min(calc(100% - 24px), 436px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--text-primary);
+  color: var(--surface-base);
+  box-shadow: var(--shadow-navigation);
+  transform: translateX(50%);
+}
+
+.pwa-update-prompt div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.pwa-update-prompt strong {
+  font-size: 13px;
+}
+
+.pwa-update-prompt span {
+  color: color-mix(in srgb, var(--surface-base) 72%, transparent);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.pwa-update-prompt span[role="alert"] {
+  color: #ffd6d6;
+}
+
+.pwa-update-prompt button {
+  min-height: 42px;
+  flex: 0 0 auto;
+  padding: 0 13px;
+  border-radius: 10px;
+  background: var(--surface-base);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.pwa-update-prompt button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.app-build-version {
+  width: min(100%, 460px);
+  margin: 0 auto;
+  padding: 0 16px var(--spacing-6);
+  color: var(--text-tertiary);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
