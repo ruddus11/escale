@@ -1,5 +1,5 @@
 // app.json에 더해, 저장소에 두지 않는 Google 지도 키를 환경 변수에서 읽는다.
-// 키는 mobile/.env의 EXPO_PUBLIC_GOOGLE_MAPS_IOS_KEY(scripts/set-ios-maps-key.sh로 넣는다)와 EXPO_PUBLIC_GOOGLE_MAPS_ANDROID_KEY.
+// 키는 mobile/.env의 EXPO_PUBLIC_GOOGLE_MAPS_IOS_KEY와 EXPO_PUBLIC_GOOGLE_MAPS_ANDROID_KEY.
 // 이 키는 앱 ID로만 쓰게 잠근 키라 앱 안에 들어가도 되지만, 공개 저장소에 올리면 남이 할당량을 쓸 수 있다.
 // 키가 없으면 그 플랫폼에서는 계획 탭 지도를 그리지 않는다. 키를 넣거나 바꾸면 네이티브 빌드를 다시 한다.
 // Android는 키 없이 Google 지도를 띄우면 앱이 종료되므로, 화면은 extra.googleMaps의 참/거짓만 보고 지도를 고른다(키 값은 넣지 않는다).

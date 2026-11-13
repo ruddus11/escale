@@ -7,7 +7,7 @@ import { mono } from "../theme/tokens";
 import { useI18n } from "../i18n/I18n";
 import type { Lang } from "../i18n/strings";
 
-// 생성한 나라별 도장 그림. docs/design/필요한_이미지_에셋.md의 프롬프트로 만든 PNG를 assets/stamps/에 넣고 여기에 연결한다.
+// 나라별 도장 그림. PNG를 assets/stamps/에 넣고 여기에 연결한다.
 // 예: JP: require("../../assets/stamps/jp.png"). 그림이 없는 나라는 아래 대체 도장(모양·잉크·글자)을 그린다.
 const stampArt: Partial<Record<string, ImageSourcePropType>> = {};
 

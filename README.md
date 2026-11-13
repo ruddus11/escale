@@ -58,7 +58,7 @@ flowchart LR
 
 ## 검증과 한계
 
-모바일·서버 도메인의 Vitest 테스트와 TypeScript 타입 검사를 확인했습니다. iOS 시뮬레이터에서 여행 생성 → 일정 → 오늘 → 지출 → 정산 → 여권 도장 발급까지 이어지는 흐름과 재실행 후 데이터 보존을 확인했습니다. 자세한 범위는 [구현 진행보고](docs/구현_진행보고_escale.md)에 있습니다.
+모바일·서버 도메인의 Vitest 테스트와 TypeScript 타입 검사를 확인했습니다. iOS 시뮬레이터에서 여행 생성 → 일정 → 오늘 → 지출 → 정산 → 여권 도장 발급까지 이어지는 흐름과 재실행 후 데이터 보존을 확인했습니다.
 
 실기기, 실제 외부 API를 연결한 화면, 영수증 카메라 인식, Android 실기기, 스토어 배포는 별도 검증이 필요합니다. 초대·공동 편집 같은 함께 쓰는 기능은 아직 구현하지 않았습니다. 자동 테스트 통과를 실기기 동작이나 출시 준비 완료로 표현하지 않습니다.
 
@@ -76,12 +76,16 @@ git clone https://github.com/ruddus11/escale.git
 cd escale
 npm ci
 npm ci --prefix mobile
-cp mobile/.env.example mobile/.env
 cd mobile
 npm run ios   # 또는 npm run android
 ```
 
-키 없이도 여행 생성·계획·돈·여권은 기기 저장소로 동작합니다. 장소 검색과 추천을 쓰려면 `mobile/.env`에 서버 주소를, 서버에는 루트 `.env.example`의 키를 설정합니다. 서버 비밀키를 `EXPO_PUBLIC_` 변수에 넣지 않습니다.
+키 없이도 여행 생성·계획·돈·여권은 기기 저장소로 동작합니다. 장소 검색과 추천을 쓰려면 아래 환경 변수를 설정합니다. 서버 비밀키는 `EXPO_PUBLIC_` 변수에 넣지 않습니다.
+
+| 위치 | 변수 |
+|---|---|
+| 앱 (`mobile/.env`) | `EXPO_PUBLIC_API_BASE_URL`, `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `EXPO_PUBLIC_GOOGLE_MAPS_IOS_KEY` |
+| 서버 (루트 `.env`) | `GOOGLE_MAPS_API_KEY`, `TYPESAFE_API_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` |
 
 ## 검증과 빌드
 
@@ -93,12 +97,5 @@ npm run typecheck
 ```
 
 Node 25에서 루트 테스트가 localStorage 충돌로 실패하면 `NODE_OPTIONS=--no-experimental-webstorage npm test`를 사용합니다.
-
-## 상세 문서
-
-- [모바일 안내](mobile/README.md)
-- [통합 설계](docs/design/Escale_통합_설계.md)
-- [구현 진행보고](docs/구현_진행보고_escale.md)
-- [화면 캡처 기록](docs/captures/README.md)
 
 오사카 여행용 개인 웹앱(Osaka Pocket)에서 시작해 여행 수첩 앱(Margin)을 거쳐 지금의 Escale이 됐습니다. 개인 여행 자료와 이전 단계의 기록, 실제 키와 개인 설정은 소스에 포함하지 않습니다.

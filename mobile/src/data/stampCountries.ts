@@ -1,5 +1,5 @@
 // 여권 도장의 나라별 디자인 자료. 나라마다 모양과 잉크색을 다르게 둬 도장이 쌓여도 서로 구별된다.
-// 실제 도장 그림은 docs/design/필요한_이미지_에셋.md의 프롬프트로 만든 뒤 assets/stamps/<code>.png로 넣고 stampArt에 연결한다.
+// 실제 도장 그림은 assets/stamps/<code>.png로 넣고 stampArt에 연결한다.
 // 그림이 없는 나라는 Stamp 컴포넌트가 이 자료(모양·색·이름·도시·날짜)로 그린 대체 도장을 쓴다.
 
 export type StampShape = "circle" | "oval" | "rect" | "hexagon" | "octagon" | "diamond" | "arch";

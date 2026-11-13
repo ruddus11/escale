@@ -1,8 +1,6 @@
 .DS_Store
-.superpowers/
 .env
 .env.*
-!.env.example
 node_modules
 dist/
 coverage/
